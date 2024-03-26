@@ -4,23 +4,24 @@ namespace Strategy_Refactoring.Services;
 
 public class PlayerFactory
 {
+    private readonly List<IPlayer> _players =
+    [
+        new Archer(),
+        new Warrior(),
+        new RookieArcher(),
+        new RookieWarrior()
+    ];
+
     public IPlayer Get(int level, string weapon)
     {
-        if (level >= 10)
+        foreach (var player in _players)
         {
-            if (weapon == "sword")
+            if (player.IsNeedToGenerate(level, weapon))
             {
-                return new Warrior();
+                return player;
             }
-
-            return new Archer();
         }
 
-        return weapon switch
-        {
-            "sword" => new RookieWarrior(),
-            "bow" => new RookieArcher(),
-            _ => new Rookie()
-        };
+        return new Rookie();
     }
 }
