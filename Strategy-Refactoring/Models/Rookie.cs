@@ -6,4 +6,9 @@ public class Rookie: IPlayer
     {
         return 1;
     }
+
+    public bool IsNeedToGenerate(int level, string weapon)
+    {
+        return level < 10;
+    }
 }

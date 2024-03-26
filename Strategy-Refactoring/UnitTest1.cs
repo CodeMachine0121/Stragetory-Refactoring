@@ -30,7 +30,7 @@ public class Tests
     [Test]
     public void should_become_rookie_when_level_is_below_10()
     {
-        _playerFactory.Get(9, "bowl").Should().BeOfType<Rookie>();
+        _playerFactory.Get(9, "").Should().BeOfType<Rookie>();
     }
 
     [Test]
