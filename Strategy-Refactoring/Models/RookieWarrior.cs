@@ -6,9 +6,4 @@ public class RookieWarrior : IPlayer
     {
         return 2;
     }
-
-    public bool IsNeedToGenerate(int level, string weapon)
-    {
-        return level < 10 && weapon == "sword";
-    }
 }
